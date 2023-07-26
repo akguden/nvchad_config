@@ -37,21 +37,6 @@ M.general = {
         -- Stop annoying LSP stuff
         ["<leader>ls"] = { "<cmd>LspStop<CR>", "Stop LSP" },
 
-        -- cycle through buffers
-        ["<C-Right>"] = {
-          function()
-            require("nvchad_ui.tabufline").tabuflineNext()
-          end,
-          "Goto next buffer",
-        },
-
-        ["<C-Left>"] = {
-          function()
-            require("nvchad_ui.tabufline").tabuflinePrev()
-          end,
-          "Goto prev buffer",
-        },
-
         -- TODO: Aiste -- you are here! figure out how to insert buffer in the middle
     },
     v = {
@@ -73,14 +58,14 @@ M.tabufline = {
 
   n = {
     -- cycle through buffers
-    ["<C-Right>"] = {
+    ["<C-E>"] = {
       function()
         require("nvchad_ui.tabufline").tabuflineNext()
       end,
       "Goto next buffer",
     },
 
-    ["<C-Left>"] = {
+    ["<C-A>"] = {
       function()
         require("nvchad_ui.tabufline").tabuflinePrev()
       end,
@@ -97,6 +82,7 @@ M.tabufline = {
 
     ["<leader>bi"] = {
       function()
+        -- NOTE: recommend printing out the buffer indexes of prev. and new buffer for debug!
         vim.cmd "enew"
        --
        --  local curbuf = vim.api.nvim_get_current_buf()
