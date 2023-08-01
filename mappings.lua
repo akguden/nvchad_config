@@ -98,7 +98,7 @@ M.tabufline = {
       "Goto prev buffer",
     },
 
-    ["bb"] = {
+    ["bp"] = {
       function()
         require("nvchad_ui.tabufline").move_buf(-1)
       end,
