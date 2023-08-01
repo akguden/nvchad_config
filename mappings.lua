@@ -50,6 +50,8 @@ M.general = {
         --     end,
         --     "Close buffer",
         -- },
+        ["q"] = { "<cmd>confirm q<CR>", "Quit", opts = { nowait = true } },
+        ["Q"] = { "<cmd>confirm q<CR>", "Quit", opts = { nowait = true } },
     },
 }
 

@@ -17,5 +17,12 @@ opt.smartindent = true
 opt.tabstop = 4
 opt.softtabstop = 4
 
+-- Sync OS & Nvim clipboard
+-- opt.clipboard = 'unnamedplus'
+
+-- Case-insensitive searching UNLESS \C or capital in search
+opt.ignorecase = true
+opt.smartcase = true
+
 -- Leader key
 g.mapleader = ","

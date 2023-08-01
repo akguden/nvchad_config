@@ -55,6 +55,16 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
+  -- {
+  --   "tanvirtin/monokai.nvim",
+  --   lazy = false,
+  --   opts = {
+  --     italics = false
+  --   },
+  --   config = function()
+  --     require("monokai").setup(_, opts)
+  --   end,
+  -- },
   {
     "windwp/nvim-autopairs",
     lazy = false,

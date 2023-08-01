@@ -9,6 +9,8 @@ M.override = {
   Comment = {
     italic = true,
   },
+  Search = { fg = "#353b45" },
+  IncSearch = { fg = "#353b45" },
 }
 
 ---@type HLTable
