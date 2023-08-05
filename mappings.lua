@@ -10,7 +10,7 @@ M.general = {
         [";"] = { ":", "enter command mode", opts = { nowait = true } },
 
         -- exit VIM
-        ["<leader>vq"] = { "<cmd>confirm q<CR>", "Quit", opts = { nowait = true } },
+        ["<leader>vq"] = { "<cmd>confirm qa<CR>", "Quit"},
 
         -- close buffer + hide terminal buffer
         ["<leader>bq"] = {
@@ -19,6 +19,9 @@ M.general = {
             end,
             "Close buffer",
         },
+
+        -- close window
+        ["<leader>wq"] = { "<cmd>close<CR>", "Close current window"},
 
         ["<leader>w"] = { "<cmd>w<CR>", "Save" },
 
@@ -36,6 +39,7 @@ M.general = {
 
         -- Stop annoying LSP stuff
         ["<leader>ls"] = { "<cmd>LspStop<CR>", "Stop LSP" },
+        ["<Space>"] = { ":noh <CR>", "Clear highlights" },
 
         -- TODO: Aiste -- you are here! figure out how to insert buffer in the middle
     },
@@ -84,20 +88,19 @@ M.tabufline = {
 
     ["<leader>bi"] = {
       function()
-        -- NOTE: recommend printing out the buffer indexes of prev. and new buffer for debug!
-        vim.cmd "enew"
-       --
-       --  local curbuf = vim.api.nvim_get_current_buf()
-       --  local bufIndex = require("nvchad_ui.tabufline").getBufIndex(curbuf)
-       -- 
-       --  local bufs = vim.t.bufs
-       --  local newIdx = bufs[#bufs]
-       --  local moveNums = bufIndex - newIdx
-       --
-       --  -- TODO: Aiste -- you'll need to override this function to accept new buffer index
-       --  require("nvchad_ui.tabufline").move_buf(-1)
+        local curbuf = vim.api.nvim_get_current_buf()
+        local curIndex = require("nvchad_ui.tabufline").getBufIndex(curbuf)
+        vim.cmd "b#"
+        local prevbuf =  vim.api.nvim_get_current_buf()
+        local prevIndex = require("nvchad_ui.tabufline").getBufIndex(prevbuf)
+        vim.cmd "b#"
+
+        -- Adjust for wanting the next position
+        local numPos = prevIndex - curIndex + 1
+        print("Previous = "..prevIndex..", New = "..curIndex..", Pos = "..numPos)
+        require("nvchad_ui.tabufline").move_buf(numPos)
       end,
-      "Goto prev buffer",
+      "Re-order current buffer next to previously opened buffer",
     },
 
     ["bp"] = {

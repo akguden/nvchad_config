@@ -10,6 +10,7 @@ M.treesitter = {
     "typescript",
     "tsx",
     "c",
+    "cpp",
     "markdown",
     "markdown_inline",
   },
@@ -49,6 +50,10 @@ M.nvimtree = {
   view = {
     adaptive_size = true,
     width = 40,
+  },
+
+  update_focused_file = {
+    enable = true,
   },
 
   renderer = {

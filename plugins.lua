@@ -19,8 +19,8 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-            
-      vim.diagnostic.config ({ 
+
+      vim.diagnostic.config ({
         virtual_text = false,
         virtual_lines = false,
         underline = false,
@@ -56,13 +56,13 @@ local plugins = {
     end,
   },
   -- {
+    -- TODO: Need to modify colors
   --   "tanvirtin/monokai.nvim",
-  --   lazy = false,
   --   opts = {
-  --     italics = false
+  --     italics = false,
   --   },
-  --   config = function()
-  --     require("monokai").setup(_, opts)
+  --   config = function(_, opts)
+  --     require("monokai").setup(opts)
   --   end,
   -- },
   {
