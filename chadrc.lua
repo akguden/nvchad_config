@@ -8,7 +8,7 @@ local M = {}
     theme = "catppuccin",
     theme_toggle = { "catppuccin", "one_light" },
     lsp_semantic_tokens = true, -- needs nvim v0.9, just adds highlight groups for lsp semantic tokens
-  
+
     hl_override = highlights.override,
     hl_add = highlights.add,
     nvdash = {
@@ -21,6 +21,12 @@ local M = {}
         { "  Themes", "<leader> t h", "Telescope themes" },
         { "  Mappings", "<leader> c h", "NvCheatsheet" },
       },
+    },
+    -- Override statusline configs
+    statusline = {
+        overriden_modules = function ()
+            return require "custom.statusline"
+        end
     },
   }
 
